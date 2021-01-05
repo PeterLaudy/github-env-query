@@ -1,0 +1,35 @@
+# This is a simple workflow to get information about the windows runner build environment for GitHub Actions
+
+name: Get Windows Environment
+
+# Controls when the action will run. 
+on:
+  # Run this workflow after a push
+  push:
+    
+  # Allows you to run this workflow manually from the Actions tab
+  workflow_dispatch:
+
+# A workflow run is made up of one or more jobs that can run sequentially or in parallel
+jobs:
+  # This workflow contains a single job called "build"
+  build:
+    # The type of runner that the job will run on
+    runs-on: windows-latest
+
+    # Steps represent a sequence of tasks that will be executed as part of the job
+    steps:
+      - name: Checkout repository
+      - uses: actions/checkout@v2
+
+      - name: Get all environment variables
+        run: dir "env:"
+
+      - name: Get installed platform tools
+        run: dir "C:\Program Files (x86)\Microsoft SDKs\Windows\v10.0A\bin"
+
+      - name: Get installed dotnet sdk's
+        run: dir "C:\Program Files\dotnet\sdk"
+
+      - name: Get installed dotnet runtimes
+        run: dir "C:\Program Files\dotnet\shared" | ForEach {dir "C:\Program Files\dotnet\shared\$_" }
