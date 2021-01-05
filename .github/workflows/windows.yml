@@ -22,6 +22,9 @@ jobs:
       - name: Checkout repository
         uses: actions/checkout@v2
 
+      - name: Get info about Powershell
+        run: Get-Host
+
       - name: Get all environment variables
         run: dir "env:"
 
@@ -32,4 +35,4 @@ jobs:
         run: dir "C:\Program Files\dotnet\sdk"
 
       - name: Get installed dotnet runtimes
-        run: dir "C:\Program Files\dotnet\shared" | ForEach {dir "C:\Program Files\dotnet\shared\$_" }
+        run: dir "C:\Program Files\dotnet\shared" | ForEach { dir "$_" }
