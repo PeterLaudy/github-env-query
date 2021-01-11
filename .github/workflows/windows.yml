@@ -38,5 +38,7 @@ jobs:
         run: dir "C:\Program Files\dotnet\shared" | ForEach { dir "$_" }
 
       - name: Run nested PowerShell scripts from repository
-        run: & "${{github.workspace}}\.powershell\main.ps1"
+        run:  |
+          Get-content "$PSCommandPath"
+          & "${{github.workspace}}\.powershell\main.ps1"
         shell: pwsh
