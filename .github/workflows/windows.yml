@@ -17,6 +17,11 @@ jobs:
     # The type of runner that the job will run on
     runs-on: windows-latest
 
+    defaults:
+      run:
+        shell: pwsh
+        working-directory: "${{github.workspace}}\.powershell\"
+
     # Steps represent a sequence of tasks that will be executed as part of the job
     steps:
       - name: Checkout repository
@@ -38,5 +43,5 @@ jobs:
         run: dir "C:\Program Files\dotnet\shared" | ForEach { dir "$_" }
 
       - name: Run nested PowerShell scripts from repository
-        run:  & "${{github.workspace}}\.powershell\main-script.ps1"
+        run:  main-script.ps1
         shell: pwsh
