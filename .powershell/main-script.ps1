@@ -13,3 +13,9 @@ Write-Output "Sub-script returned: $return_value"
 
 # Sub-script has set a variable in the global scope, which we can access here
 Write-Output "Sub-script returned: $return_value"
+
+if (Test-Path env:CI) {
+  Write-Output "Running on the GitHub Actions server farm."
+} else {
+  Write-Output "Running on a local development machine."
+}
