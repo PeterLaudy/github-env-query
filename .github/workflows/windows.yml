@@ -40,5 +40,5 @@ jobs:
       - name: Run nested PowerShell scripts from repository
         run:  |
           Get-content "$PSCommandPath"
-          & "${{github.workspace}}\.powershell\main.ps1"
+          & "${{github.workspace}}\.powershell\main-script.ps1"
         shell: pwsh
