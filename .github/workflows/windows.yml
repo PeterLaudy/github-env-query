@@ -20,7 +20,7 @@ jobs:
     defaults:
       run:
         shell: pwsh
-        working-directory: .powershell
+        working-directory: .\
 
     # Steps represent a sequence of tasks that will be executed as part of the job
     steps:
@@ -43,5 +43,5 @@ jobs:
         run: dir "C:\Program Files\dotnet\shared" | ForEach { dir "$_" }
 
       - name: Run nested PowerShell scripts from repository
-        run:  main-script.ps1
+        run:  .powershell\main-script.ps1
         shell: pwsh
