@@ -7,4 +7,4 @@ For ( $i = 0; $i -lt $args.Count; $i++ ) {
 }
 
 # Trying to return a parameter to the calling script.
-$global:return_value="Result returned from sub-scipt (42)"
+$global:return_value="Result returned from sub-script (42)"
