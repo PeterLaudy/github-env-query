@@ -10,3 +10,9 @@ For ( $i = 0; $i -lt $args.Count; $i++ ) {
 
 # Trying to return a parameter to the calling script.
 $global:return_value="Result returned from sub-script (42)"
+
+$global:simple_string = "Set in the sub script."
+$simple_string = "Set in the sub script on the second try."
+$global:another_string = "Set in the sub script."
+$simple_object.main_property = "Property set in the sub script."
+$simple_object | Add-Member -MemberType NoteProperty -Name sub_property -Value "Property created in the sub script."

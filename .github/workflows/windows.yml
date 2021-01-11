@@ -6,7 +6,7 @@ name: Get Windows Environment
 on:
   # Run this workflow after a push
   push:
-    
+
   # Allows you to run this workflow manually from the Actions tab
   workflow_dispatch:
 
