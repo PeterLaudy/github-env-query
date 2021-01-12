@@ -48,8 +48,6 @@ jobs:
 
       - name: Show installed tool versions
         run: |
-          Write-Output "MSBuild: $(& msbuild.exe -version | select -Last 1)"
-          Write-Output "nuget:  $(& nuget.exe help | select -First 1)"
           Write-Output "dotnet:  $(& dotnet.exe --version)"
           Write-Output "mstest:  $(& vstest.console.exe --version | select -First 1)"
         shell: pwsh
