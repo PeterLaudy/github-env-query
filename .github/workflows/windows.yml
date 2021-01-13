@@ -48,6 +48,7 @@ jobs:
 
       - name: Show installed tool versions
         run: |
-          Write-Output "dotnet:  $(& dotnet.exe --version)"
-          Write-Output "mstest:  $(& vstest.console.exe --version | select -First 1)"
+          & dotnet.exe --version
+          & "C:\Program Files (x86)\Microsoft Visual Studio\2019\Enterprise\Common7\IDE\Extensions\TestPlatform\vstest.console.exe" --version | select -First 1
+          & "C:\Program Files (x86)\Microsoft Visual Studio\2019\Enterprise\MSBuild\Current\Bin\MSBuild.exe" -version | select -Last 1
         shell: pwsh
