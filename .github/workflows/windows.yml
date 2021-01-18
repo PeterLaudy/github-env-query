@@ -51,4 +51,5 @@ jobs:
           & dotnet.exe --version
           & "C:\Program Files (x86)\Microsoft Visual Studio\2019\Enterprise\Common7\IDE\Extensions\TestPlatform\vstest.console.exe" /help | select -First 1
           & "C:\Program Files (x86)\Microsoft Visual Studio\2019\Enterprise\MSBuild\Current\Bin\MSBuild.exe" -version | select -Last 1
+          Get-Command curl
         shell: pwsh
