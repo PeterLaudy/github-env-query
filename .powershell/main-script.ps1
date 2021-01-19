@@ -1,6 +1,6 @@
 # Main PowerShell script. Calls sub script with certain parameters.
 
-Write-Output "Main-script started in $pwd"
+Write-Output "Main-script started from $PSCommandPath"
 
 # Setting a globalvariable to see if we can change this in a sub-script.
 $simple_string = "Set in the main script."

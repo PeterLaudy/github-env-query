@@ -1,6 +1,6 @@
 # PowerShell sub script. Called from main-script with certain parameters.
 
-Write-Output "Sub-script from sub-folder started in $pwd"
+Write-Output "Sub-script from sub-folder started from $PSCommandPath"
 
 Write-Output "There are a total of $($args.count) arguments"
 For ( $i = 0; $i -lt $args.Count; $i++ ) {
