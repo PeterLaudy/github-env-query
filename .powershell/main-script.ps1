@@ -11,7 +11,6 @@ if ($PSCommandPath.StartsWith($dir.FullName)) {
 # Checkout an older version from this repository. This should not
 # affect the scripts, since they are copied outside the repo.
 cd $dir
-git fetch
 $commit = $(git rev-list --max-count=3 HEAD)[2]
 git checkout "$commit"
 git status
