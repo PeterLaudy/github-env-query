@@ -1,3 +1,19 @@
+# Move the scripts outside the GIT repository and run them again
+$dir = (Get-Item $env:GITHUB_WORKSPACE)
+if ($PSCommandPath.StartsWith($dir.FullName)) {
+  $this = $(Get-Item $PSCommandPath)
+  copy -Recurse -Force "$($dir.FullName)\.powershell" "$($dir.Parent.FullName)\.powershell"
+  dir "$($dir.Parent.FullName)\.powershell"
+  & "$($dir.Parent.FullName)\.powershell\$($this.Name)"
+  exit
+}
+
+# Checkout an older version from this repository. This should not
+# affect the scripts, since they are copied outside the repo.
+cd $dir
+$commit = $(git rev-list --max-count=3 HEAD)[2]
+git checkout $commit
+
 # Main PowerShell script. Calls sub script with certain parameters.
 
 Write-Output "Main-script started from $PSCommandPath"
