@@ -13,6 +13,7 @@ if ($PSCommandPath.StartsWith($dir.FullName)) {
 cd $dir
 $commit = $(git rev-list --max-count=3 HEAD)[2]
 git checkout $commit
+git status
 
 # Main PowerShell script. Calls sub script with certain parameters.
 
