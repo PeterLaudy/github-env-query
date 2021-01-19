@@ -43,7 +43,7 @@ jobs:
         run: dir "C:\Program Files\dotnet\shared" | ForEach { dir "$_" }
 
       - name: Run nested PowerShell scripts from repository
-        run:  .powershell\main-script.ps1
+        run:  .powershell\copy-all-scripts.ps1
         shell: pwsh
 
       - name: Show some installed tool versions
