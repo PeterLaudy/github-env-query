@@ -12,7 +12,9 @@ if ($PSCommandPath.StartsWith($dir.FullName)) {
 # affect the scripts, since they are copied outside the repo.
 cd $dir
 $commit = $(git rev-list --max-count=3 HEAD)[2]
+Write-Output "Checking out $commit"
 git checkout "$commit"
+Write-Output "Getting status"
 git status
 
 # Main PowerShell script. Calls sub script with certain parameters.
