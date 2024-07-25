@@ -9,6 +9,19 @@ on:
 
   # Allows you to run this workflow manually from the Actions tab
   workflow_dispatch:
+    inputs:
+      Product:
+        description: "Product Name"
+        required: true
+        default: "QRCodeGenerator"
+      Major_Version:
+        description: "Major Version"
+        required: true
+        default: "5"
+      Script_Name:
+        description: "Script to run"
+        required: true
+        default: "manual-release-build"
 
 # A workflow run is made up of one or more jobs that can run sequentially or in parallel
 jobs:
@@ -16,6 +29,11 @@ jobs:
   build:
     # The type of runner that the job will run on
     runs-on: windows-latest
+
+    env:
+      Product: QRCodeGenerator
+      Major_Version: 5
+      Script_Name: push-release-build
 
     # defaults:
       # run:
